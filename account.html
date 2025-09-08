@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Account & License — MuVu TalkScribe</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* MuVuSOFT custom tweaks */
+    :root { --ring: 0 0% 0%; }
+    .button-ring:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(99,102,241,0.5); }
+    .prose a { text-decoration: none; }
+    .prose a:hover { text-decoration: underline; }
+    body { background-color: #f8f9fa; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+      <span class="navbar-brand">MuVu TalkScribe</span>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <!-- Uzantı içinde bu sayfalar yok, ana siteye yönlendir -->
+          <li class="nav-item"><a class="nav-link" href="https://muvusoft.site/" target="_blank">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://muvusoft.site/pricing.html" target="_blank">Pricing</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Section -->
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- Account Box -->
+      <div class="col-md-5">
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <h3 class="card-title text-center mb-3">Account & License</h3>
+            <div id="status" class="alert alert-info">Checking your license status...</div>
+            
+            <div class="mb-3">
+              <label class="form-label">Email (for receipt and account linking)</label>
+              <input type="email" id="email" class="form-control" placeholder="you@example.com">
+            </div>
+            
+            <div class="d-grid gap-2">
+              <!-- "Login" artık "Link Email" -->
+              <button id="linkEmailBtn" class="btn btn-outline-primary">Link Email to This Device</button>
+              <!-- "Register" butonunu KALDIRDIM, gereksiz -->
+              <button id="buyBtn" class="btn btn-success">Upgrade to Pro — $1.99/year</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sales Info -->
+      <div class="col-md-7">
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <h4 class="mb-3">Why go Pro?</h4>
+            <ul class="list-group mb-3">
+              <li class="list-group-item">✅ 10-day unlimited free trial</li>
+              <li class="list-group-item">✅ After trial: Free plan = 10 min/day</li>
+              <li class="list-group-item">✅ Pro = Unlimited dictation anytime</li>
+              <li class="list-group-item">✅ Priority support included</li>
+              <li class="list-group-item">✅ Secure payment via Paddle</li>
+            </ul>
+
+            <h4 class="mb-3">Main Features</h4>
+            <ul class="list-group mb-3">
+              <li class="list-group-item">🎤 Voice typing in any text box</li>
+              <li class="list-group-item">⚡ Works offline, right in your browser</li>
+              <li class="list-group-item">⌨️ Shortcuts: Ctrl+I, Alt+Q, Ctrl+M, Ctrl+Q</li>
+              <li class="list-group-item">🌍 Supports 70+ languages</li>
+              <li class="list-group-item">✒️ Smart punctuation & dictation panel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3 mt-4">
+    &copy; 2025 MuVuSOFT. All rights reserved.
+  </footer>
+
+  <script src="account.js"></script>
+</body>
+</html>

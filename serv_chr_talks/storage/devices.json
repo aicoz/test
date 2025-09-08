@@ -1,0 +1,22 @@
+{
+    "test_device_12345": {
+        "deviceId": "test_device_12345",
+        "fph": "faba22d3c261e5dc3040b23e6a352297be8d2917a62838d65bbd417749b7b587",
+        "firstSeen": 1757159626,
+        "trialStart": 1757159626,
+        "trialExtended": false,
+        "linkedAccount": "",
+        "lastSeen": 1757182599,
+        "daily": []
+    },
+    "dev-1ahwijr9g": {
+        "deviceId": "dev-1ahwijr9g",
+        "fph": "6b67ca2a5ace795dd2142b8e135f32a3e773552c9770c9233a111ec8245b2eb3",
+        "firstSeen": 1757223897,
+        "trialStart": 1757223897,
+        "trialExtended": false,
+        "linkedAccount": "",
+        "lastSeen": 1757225802,
+        "daily": []
+    }
+}

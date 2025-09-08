@@ -1,0 +1,76 @@
+{
+  "manifest_version": 3,
+  "name": "MuVu-TalkScribe: Speak to Type",
+  "version": "2.0",
+  "description": "Input text by speaking on web pages. With multi-language support and smart punctuation.",
+  "permissions": [
+    "scripting",
+    "activeTab", 
+    "storage",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon-gray-16.png",
+      "32": "icons/icon-gray-32.png",
+      "48": "icons/icon-gray-48.png",
+      "128": "icons/icon-gray-128.png"
+    },
+    "default_title": "MuVu-TalkScribe"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["overlay.js", "shortcut_info.html", "dictation_pad.js", "dictation_pad.css", "paddlem.js", "account.html", "account.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "commands": {
+    "toggle-listening": {
+      "suggested_key": {
+        "default": "Ctrl+I",
+        "mac": "Command+I"
+      },
+      "description": "Toggle microphone"
+    },
+    "reset-microphone": {
+      "suggested_key": {
+        "default": "Ctrl+Q",
+        "mac": "Command+Q"
+      },
+      "description": "Reset microphone state"
+    },
+    "toggle-language": {
+      "suggested_key": {
+        "default": "Alt+Q",
+        "mac": "MacCtrl+Q"
+      },
+      "description": "Toggle between current and previous language"
+    },
+    "toggle-dictation-pad": {
+      "suggested_key": {
+        "default": "Ctrl+M",
+        "mac": "Command+M"
+      },
+      "description": "Toggle Dictation Pad"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-gray-16.png",
+    "32": "icons/icon-gray-32.png",
+    "48": "icons/icon-gray-48.png",
+    "128": "icons/icon-gray-128.png"
+  }
+}

@@ -1,0 +1,300 @@
+/* Dictation Pad Overlay Styles */
+.dictation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.dictation-container {
+    width: 90%;
+    max-width: 1000px;
+    height: 85%;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Header */
+.dictation-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px 12px 0 0;
+}
+
+.dictation-title h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.dictation-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.control-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.close-btn:hover {
+    background: #ff4757;
+}
+
+/* Toolbar */
+.dictation-toolbar {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.toolbar-group {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.toolbar-btn {
+    padding: 8px 12px;
+    border: 1px solid #dee2e6;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s ease;
+    min-width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toolbar-btn:hover {
+    background: #e9ecef;
+    border-color: #adb5bd;
+}
+
+.toolbar-btn.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.toolbar-select {
+    padding: 8px 12px;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    background: white;
+    font-size: 14px;
+    cursor: pointer;
+    height: 36px;
+}
+
+.toolbar-separator {
+    width: 1px;
+    height: 24px;
+    background: #dee2e6;
+}
+
+/* Content Area */
+.dictation-content {
+    flex: 1;
+    padding: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-editor {
+    flex: 1;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    outline: none;
+    overflow-y: auto;
+    background: white;
+    transition: border-color 0.2s ease;
+    min-height: 300px;
+}
+
+.text-editor:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.text-editor:empty:before {
+    content: attr(placeholder);
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Footer */
+.dictation-footer {
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 12px 12px;
+}
+
+.status-info {
+    display: flex;
+    gap: 20px;
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.footer-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-btn {
+    padding: 8px 16px;
+    border: 1px solid #007bff;
+    background: white;
+    color: #007bff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.footer-btn:hover {
+    background: #007bff;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dictation-container {
+        width: 95%;
+        height: 90%;
+    }
+    
+    .dictation-toolbar {
+        padding: 10px 15px;
+        gap: 10px;
+    }
+    
+    .toolbar-btn {
+        padding: 6px 10px;
+        min-width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+    
+    .dictation-content {
+        padding: 15px;
+    }
+    
+    .text-editor {
+        padding: 15px;
+        font-size: 13px;
+    }
+    
+    .status-info {
+        gap: 15px;
+        font-size: 11px;
+    }
+    
+    .footer-btn {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+}
+
+/* Minimized State */
+.dictation-overlay.minimized .dictation-container {
+    height: auto;
+    width: 300px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    top: auto;
+    left: auto;
+}
+
+.dictation-overlay.minimized .dictation-content,
+.dictation-overlay.minimized .dictation-toolbar,
+.dictation-overlay.minimized .dictation-footer {
+    display: none;
+}
+
+.dictation-overlay.minimized .dictation-header {
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+/* Hidden State */
+.dictation-overlay.hidden {
+    display: none;
+}
+
+/* Text Formatting */
+.text-editor b, .text-editor strong {
+    font-weight: bold;
+}
+
+.text-editor i, .text-editor em {
+    font-style: italic;
+}
+
+.text-editor u {
+    text-decoration: underline;
+}
+
+
+
+

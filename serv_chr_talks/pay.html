@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Redirecting to secure payment…</title>
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js" defer></script>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;margin:0;display:grid;place-items:center;height:100dvh}
+    .wrap{max-width:640px;padding:24px;text-align:center}
+    .muted{opacity:.65;font-size:.95rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Redirecting to Paddle for secure payment…</h1>
+    <p class="muted">Please wait. If the payment window does not appear, disable your pop-up blocker and refresh the page.</p>
+    <noscript>Please enable JavaScript to continue.</noscript>
+  </div>
+
+  <script>
+    const PADDLE_CLIENT_TOKEN = 'test_d3276c083f31ae7ef00c9afa2d5';
+
+    function fail(msg){
+      console.error(msg);
+      document.querySelector('.muted').textContent = msg;
+    }
+
+    function onReady(fn){
+      if (window.Paddle && window.Paddle.Initialize) { fn(); }
+      else { setTimeout(() => onReady(fn), 30); }
+    }
+
+    onReady(() => {
+      try{
+        // 🔹 production ortamını açıkça belirtmek için ek satır ('production') vs. ('sandbox'):
+        Paddle.Environment.set('sandbox');
+
+        Paddle.Initialize({
+          token: PADDLE_CLIENT_TOKEN,
+          eventCallback: function(data){ console.log('[Paddle event]', data); }
+        });
+
+        const qp = new URLSearchParams(window.location.search);
+        const priceId  = qp.get('price_id');   // pri_...
+        const email    = qp.get('email') || '';
+        const deviceId = qp.get('deviceId') || '';
+
+        if (!priceId) {
+          document.body.innerText = 'Missing price_id in URL';
+          throw new Error('Missing price_id');
+        }
+
+        console.log('Opening Paddle overlay with', { priceId, email, deviceId });
+
+        Paddle.Checkout.open({
+          settings: { displayMode: "overlay", theme: "light" },
+          items: [{ priceId: priceId, quantity: 1 }],
+          customer: email ? { email } : undefined,
+          customData: deviceId ? { deviceId } : undefined
+        });
+      }catch(e){
+        fail('Failed to open payment window: ' + (e && e.message ? e.message : e));
+      }
+    });
+  </script>
+</body>
+</html>

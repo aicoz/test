@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Shortcuts - Speaker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .shortcut-info {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+        }
+
+        .shortcut-info h2 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .shortcut-keys {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .key {
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .plus {
+            color: #666;
+            font-size: 18px;
+            font-weight: bold;
+            align-self: center;
+        }
+
+        .steps {
+            margin-top: 30px;
+        }
+
+        .steps h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        .step:hover {
+            transform: translateX(5px);
+        }
+
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .step-description {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+
+        .note-title {
+            color: #856404;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .note-content {
+            color: #856404;
+            line-height: 1.5;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎤 Keyboard Shortcuts</h1>
+            <p>Use the Speaker extension more efficiently</p>
+        </div>
+
+        <div class="content">
+            <div class="shortcut-info">
+                <h2>⌨️ Default Shortcut (Toggle Microphone)</h2>
+                <p>To toggle microphone on/off:</p>
+                <div class="shortcut-keys">
+                    <span class="key">Ctrl</span>
+                    <span class="plus">+</span>
+                    <span class="key">I</span>
+                </div>
+                <p><small>For Mac users: <strong>Cmd + I</strong></small></p>
+            </div>
+
+            <div class="shortcut-info">
+                <h2>🔄 Default Shortcut (Reset Microphone)</h2>
+                <p>To reset microphone state (useful if it stops responding):</p>
+                <div class="shortcut-keys">
+                    <span class="key">Ctrl</span>
+                    <span class="plus">+</span>
+                    <span class="key">Q</span>
+                </div>
+                <p><small>For Mac users: <strong>Cmd + Q</strong></small></p>
+            </div>
+
+            <div class="shortcut-info">
+                <h2>🌐 Default Shortcut (Toggle Language)</h2>
+                <p>To switch between current and previous language:</p>
+                <div class="shortcut-keys">
+                    <span class="key">Ctrl</span>
+                    <span class="plus">+</span>
+                    <span class="key">Alt</span>
+                    <span class="plus">+</span>
+                    <span class="key">Q</span>
+                </div>
+                <p><small>For Mac users: <strong>Alt (Option) + Q</strong></small></p>
+            </div>
+
+            <div class="shortcut-info">
+                <h2>📝 Default Shortcut (Toggle Dictation Pad)</h2>
+                <p>To open/close the Dictation Pad:</p>
+                <div class="shortcut-keys">
+                    <span class="key">Ctrl</span>
+                    <span class="plus">+</span>
+                    <span class="key">M</span>
+                </div>
+                <p><small>For Mac users: <strong>Cmd + M</strong></small></p>
+            </div>
+
+            <div class="steps">
+                <h3>🔧 Customize Shortcut</h3>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Open Chrome Extensions Page</div>
+                        <div class="step-description">
+                            Type <strong>chrome://extensions/</strong> in the address bar and press Enter.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Open the Hamburger Menu</div>
+                        <div class="step-description">
+                            Click the <strong>☰</strong> (three lines) icon in the top left corner.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-title">Go to Keyboard Shortcuts</div>
+                        <div class="step-description">
+                            Click on the <strong>"Keyboard shortcuts"</strong> option in the menu that opens.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-title">Find the Speaker Extension</div>
+                        <div class="step-description">
+                            Locate the <strong>"Speaker - Voice Text Input"</strong> extension in the list.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <div class="step-title">Change the Shortcut</div>
+                        <div class="step-description">
+                            Click the pencil icon next to any command and enter your desired key combination.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <div class="note-title">💡 Tip</div>
+                <div class="note-content">
+                    Shortcut keys should not conflict with other applications. Chrome automatically detects conflicting shortcuts and warns you.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            This page can be closed by simply closing the tab.
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
